@@ -1,0 +1,5 @@
+ppv3_opencpu:
+  image: ppv3/opencpu
+  container_name: ppv3-opencpu
+#  volumes:
+#    - $PROJECTPATH:/home/sites/admin.v3.proofpilot.lan

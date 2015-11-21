@@ -1,0 +1,7 @@
+#dot-file exceptions
+.*
+!.gitignore
+!.gitkeep
+!.dockerignore
+
+
