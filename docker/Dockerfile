@@ -142,6 +142,8 @@ RUN mkdir -p /var/log/supervisor \
   && chmod g+w /var/log/supervisor \
   && chgrp staff /etc/supervisor/conf.d/supervisord.conf
 
+ADD entrypoint.sh /entrypoint.sh
+RUN chmod 550 /entrypoint.sh
 
 #########################################################################################
 
@@ -149,10 +151,6 @@ RUN mkdir -p /var/log/supervisor \
 #RUN R CMD INSTALL
 
 ##########################################################################################
-
-RUN cd /home/rstudio/r-ppv3 && \
-    R CMD build */ && \
-    R CMD INSTALL *.tar.gz
 
 # Apache ports
 EXPOSE 80
@@ -166,7 +164,7 @@ ENV TERM=xterm
 
 ##########################################################################################
 
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+ENTRYPOINT ["/entrypoint.sh"]
 
 
 

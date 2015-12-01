@@ -53,4 +53,8 @@ docker build -t ppv3/opencpu $PROJECTPATH/docker
 #run all containers and start services
 cd $PROJECTPATH && docker-compose up -d
 
+docker exec ppv3-opencpu bash -c "cd /home/rstudio/r-ppv3 && R CMD build \`ls -d */\` && R CMD INSTALL *.tar.gz"
+
+
+
 
