@@ -142,6 +142,12 @@ RUN mkdir -p /var/log/supervisor \
   && chmod g+w /var/log/supervisor \
   && chgrp staff /etc/supervisor/conf.d/supervisord.conf
 
+
+#########################################################################################
+
+# Additional R libraries
+#RUN R CMD INSTALL
+
 ##########################################################################################
 
 
