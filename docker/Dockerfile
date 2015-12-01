@@ -88,10 +88,6 @@ RUN apt-get update  && \
 
 RUN /usr/sbin/a2ensite opencpu 2>&1 >/dev/null | grep -i  'error' || true
 
-RUN mkdir -p /ppv3 && \
-    chown rstudio:rstudio /ppv3 \
-    && chmod g+w /ppv3 \
-
 ######### Some vagrant-related things ###############################################
 
 ADD https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub /home/docker/.ssh/authorized_keys
@@ -131,6 +127,11 @@ RUN usermod -l rstudio docker \
   && echo '"\e[5~": history-search-backward' >> /etc/inputrc \
   && echo '"\e[6~": history-search-backward' >> /etc/inputrc \
   && echo "rstudio:rstudio" | chpasswd
+
+
+RUN mkdir -p /home/rstudio/r-ppv3 && \
+    chown rstudio:rstudio /home/rstudio/r-ppv3 \
+    && chmod g+w /home/rstudio/r-ppv3
 
 ## User config and supervisord for persistant RStudio session
 COPY userconf.sh /usr/bin/userconf.sh

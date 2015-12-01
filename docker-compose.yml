@@ -2,4 +2,4 @@ ppv3_opencpu:
   image: ppv3/opencpu
   container_name: ppv3-opencpu
   volumes:
-    - $PROJECTPATH:/projects
+    - $PROJECTPATH/r-ppv3:/home/rstudio/r-ppv3
