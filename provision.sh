@@ -48,7 +48,7 @@ fi
 
 for f in ~/scripts/*.sh; do source $f; done
 
-docker build -t ppv3/opencpu $PROJECTPATH
+docker build -t ppv3/opencpu $PROJECTPATH/docker
 
 #run all containers and start services
 cd $PROJECTPATH && docker-compose up -d
