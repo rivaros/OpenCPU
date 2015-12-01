@@ -150,6 +150,9 @@ RUN mkdir -p /var/log/supervisor \
 
 ##########################################################################################
 
+RUN cd /home/rstudio/r-ppv3 && \
+    R CMD build */ && \
+    R CMD INSTALL *.tar.gz
 
 # Apache ports
 EXPOSE 80
